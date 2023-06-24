@@ -2,9 +2,14 @@ import styled, { keyframes } from "styled-components";
 import TeamMember from "../components/TeamMember";
 
 const TeamSolarify = ({ circleSize }) => {
+  const initialRotation = 0;
+
   const revolve = keyframes`
-    to {
-      transform: rotate(360deg);
+    0% {
+      transform: rotate(${initialRotation}deg);
+    }
+    100% {
+      transform: rotate(${initialRotation + 360}deg);
     }`;
 
   const Circle = styled.div`
@@ -16,7 +21,9 @@ const TeamSolarify = ({ circleSize }) => {
 
   return (
     <Circle>
-      <TeamMember>Hello</TeamMember>
+      <TeamMember initialRotation={initialRotation} memberSize={50}>
+        Hello
+      </TeamMember>
     </Circle>
   );
 };

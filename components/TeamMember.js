@@ -1,9 +1,12 @@
 import styled, { keyframes } from "styled-components";
 
-const TeamMember = ({ memberSize, children }) => {
+const TeamMember = ({ initialRotation, memberSize, children }) => {
   const spin = keyframes`
-    to {
-      transform: rotate(-360deg);
+    0% {
+      transform: rotate(${360 - initialRotation}deg);
+    }
+    100% {
+      transform: rotate(${initialRotation * -1}deg);
     }`;
 
   const Member = styled.div`
