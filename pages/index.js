@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <TeamSolarify circleSize={200} members={members} />
+      <TeamSolarify circleSize={300} members={members} />
     </div>
   );
 }
