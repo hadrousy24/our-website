@@ -1,7 +1,8 @@
 import styled, { keyframes } from "styled-components";
 import TeamMember from "../components/TeamMember";
+import Image from "next/image";
 
-const TeamSolarify = ({ circleSize, members }) => {
+const TeamSolarify = ({ circleSize, memberSize, children: members }) => {
   function buildCircle(member, initialRotation) {
     const revolve = keyframes`
       0% {
@@ -24,8 +25,14 @@ const TeamSolarify = ({ circleSize, members }) => {
 
     return (
       <Circle>
-        <TeamMember initialRotation={initialRotation} memberSize={50}>
-          {member}
+        <TeamMember initialRotation={initialRotation} memberSize={memberSize}>
+          <Image
+            src={member.image}
+            width={memberSize}
+            height={memberSize}
+            style={{ borderRadius: "50%" }}
+          />
+          <div>{member.name}</div>
         </TeamMember>
       </Circle>
     );
@@ -35,7 +42,7 @@ const TeamSolarify = ({ circleSize, members }) => {
     <div className="solarify-system">
       {members.map((member, index) => (
         <div key={member.id}>
-          {buildCircle(member.name, (index * 360) / members.length)}
+          {buildCircle(member, (index * 360) / members.length)}
         </div>
       ))}
     </div>

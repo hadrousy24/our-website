@@ -10,12 +10,14 @@ const TeamMember = ({ initialRotation, memberSize, children }) => {
     }`;
 
   const Member = styled.div`
-    background-color: blue;
     width: ${memberSize}px;
     height: ${memberSize}px;
     animation: ${spin} 4s linear infinite;
     transform-origin: center;
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   `;
 
   return <Member>{children}</Member>;

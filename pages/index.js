@@ -2,24 +2,24 @@ import styles from "../styles/Home.module.css";
 import TeamSolarify from "../components/TeamSolarify";
 
 export default function Home() {
-  let members = [
+  const members = [
     {
-      image: "https://picsum.photos/20/300",
+      image: "https://picsum.photos/100",
       name: "Basel",
       id: 1,
     },
     {
-      image: "https://picsum.photos/20/30",
+      image: "https://picsum.photos/100",
       name: "Norhan",
       id: 2,
     },
     {
-      image: "https://picsum.photos/200/30",
+      image: "https://picsum.photos/100",
       name: "Mohammed",
       id: 3,
     },
     {
-      image: "https://picsum.photos/200/300",
+      image: "https://picsum.photos/100",
       name: "Hadeel",
       id: 4,
     },
@@ -27,7 +27,9 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <TeamSolarify circleSize={300} members={members} />
+      <TeamSolarify circleSize={300} memberSize={100}>
+        {members}
+      </TeamSolarify>
     </div>
   );
 }
